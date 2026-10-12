@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoulder | Our Story</title>
+
+    <link rel="icon" href="img2/candle.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="cart">
+        <div class="top_cart">
+            <h3>Scent Basket: <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+
+        <div class="items_in_cart" id="cart_items">
+        </div>
+
+        <div class="bottom_cart">
+            <div class="total">
+                <p>Subtotal</p>
+                <p class="price_cart_toral">$0</p>
+            </div>
+
+            <div class="button_cart">
+                <a href="checkout.html" class="btn_cart btn">Checkout</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">close</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="img2/candle.png" width="35px" height="35px" alt="Smoulder Logo">
+                    <h2>Smoulder</h2>
+                </a>
+                <form action="" class="search_box">
+                    <div class="select_box">
+                        <select id="category" name="category">
+                            <option value="All">All Categories</option>
+                            <option value="Cozy">Cozy Candles</option>
+                            <option value="Fresh">Fresh Diffusers</option>
+                            <option value="Romantic">Romantic Sets</option>
+                            <option value="Deep">Deep Oud & Wood</option>
+                            <option value="Sweet">Sweet Vanilla</option>
+                        </select>
+                    </div>
+                    <input type="text" name="search" id="search" placeholder="Search for your favorite scent..."
+                        required>
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <div class="header_icons">
+                    <div class="icon">
+                        <a href="#"><i class="fa-regular fa-heart"></i><span class="count count_favourite">0</span></a>
+                    </div>
+                    <div onclick="open_close_cart()" class="icon">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="count count_item_header">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_header">
+            <div class="container">
+                <nav class="nav">
+                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+                    <div class="category_nav">
+                        <div onclick="Open_Categ_list()" class="category_btn">
+                            <i class="fa-solid fa-bars"></i>
+                            <p>Scent Collections</p>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div class="category_nav_list">
+                            <a href="#">Best Sellers</a>
+                            <a href="#">Handmade Candles</a>
+                            <a href="#">Essential Oils</a>
+                            <a href="#">Home Diffusers</a>
+                            <a href="#">Gift Boxes</a>
+                            <a href="#">Room Sprays</a>
+                        </div>
+                    </div>
+                    <ul class="nav_links">
+                        <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="collection.html">Scent Collections</a></li>
+                        <li class="active"><a href="our story.html">Our Story</a></li>
+                        <li><a href="contact us .html">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <div class="login_signup btns">
+
+                    <a href="javascript:void(0)" onclick="toggleModal('login')" class="btn">Login<i
+                            class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="javascript:void(0)" onclick="toggleModal('signup')" class="btn">Join Us<i
+                            class="fa-solid fa-user-plus"></i></a>
+                </div>
+                <!-- header btn -->
+                <div class="auth_modal" id="authModal">
+                    <div class="modal_content">
+                        <span class="close_modal" onclick="toggleModal()">&times;</span>
+
+                        <div id="loginForm" class="auth_form_container">
+                            <h2>Welcome Back</h2>
+                            <p>Login to your account</p>
+                            <form>
+                                <input type="email" placeholder="Email Address" required>
+                                <input type="password" placeholder="Password" required>
+                                <button type="submit" class="auth_btn">Login</button>
+                            </form>
+                            <p class="switch_text">New here? <a href="javascript:void(0)"
+                                    onclick="switchForm('signup')">Create
+                                    Account</a></p>
+                        </div>
+
+                        <div id="signupForm" class="auth_form_container" style="display: none;">
+                            <h2>Create Account</h2>
+                            <p>Join Smoulder Luxury</p>
+                            <form>
+                                <div class="form_grid">
+                                    <input type="text" placeholder="First Name" required>
+                                    <input type="text" placeholder="Last Name" required>
+                                </div>
+                                <input type="email" placeholder="Email Address" required>
+                                <input type="password" placeholder="Password" required>
+                                <button type="submit" class="auth_btn">Sign Up</button>
+                            </form>
+                            <p class="switch_text">Already have an account? <a href="javascript:void(0)"
+                                    onclick="switchForm('login')">Login</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="story-hero">
+        <div class="container hero-flex">
+            <div class="hero-text">
+                <h1>Smoulder </h1>
+                <h2>Not Just a Candle… A Feeling </h2>
+                <br><br><br>
+                <span class="brand-name">
+                    "At Smoulder, we believe that every flicker holds a feeling.<br>
+                    Our candles are carefully crafted to bring warmth <br>into your space,
+                    calm into your mind,<br> and a soft glow into your everyday life."</span>
+
+                <br>
+                <br>
+                <p class="location">Handcrafted in Cairo, Egypt</p>
+
+                <br><br><br><br>
+                <div class="section_title">
+                    <span class="label">Where Our Story Begins....</span>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="blob-shape"></div>
+                <img src="img/product/13.png" alt="Candle making" class="main-img">
+                <div class="stars">✦</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-split">
+        <div class="split-container">
+            <div class="image-box">
+                <div class="arch-frame">
+                    <img src="https://images.unsplash.com/photo-1570823635306-250abb06d4b3?q=80&w=1000&auto=format&fit=crop"
+                        alt="Founder">
+                </div>
+            </div>
+            <div class="text-box">
+                <h2>OUR FOUNDING</h2>
+                <p>From our kitchen stove to your home, we began with a simple passion: to craft the perfect,
+                    clean-burning candle. Our dedication to quality and craftsmanship defines every blend we create.</p>
+                <div class="difference-box">
+                    <h3>WHAT MAKES US DIFFERENT?</h3>
+                    <p>Every Candle Tale is a unique blend of sustainably sourced waxes, natural essential oils, and
+                        lead-free cotton wicks.</p>
+                    <p class="stat">"Our candles burn 45% longer and cleaner than standard options."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- our values -->
+    <section class="shop_by_vibe">
+        <div class="container">
+
+            <div class="section_title">
+                <span class="label">Our Commitment</span>
+                <h2>Our Values</h2>
+                <p>Crafting scents with purpose, integrity, and a whole lot of love.</p>
+            </div>
+
+            <div class="vibes_grid">
+
+                <div class="vibe_card">
+                    <div class="vibe_circle">
+                        <i class="fa-regular fa-sun"></i>
+                    </div>
+                    <h5>Honesty</h5>
+                    <p>Clear, clean ingredients.</p>
+                </div>
+
+                <div class="vibe_card">
+                    <div class="vibe_circle">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                    <h5>True Kindness</h5>
+                    <p>Care for you and others.</p>
+                </div>
+
+                <div class="vibe_card">
+                    <div class="vibe_circle">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h5>Sustainable</h5>
+                    <p>Eco-friendly wicks and wax.</p>
+                </div>
+
+                <div class="vibe_card">
+                    <div class="vibe_circle">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <h5>Lasting Impact</h5>
+                    <p>Slow, intentional burn.</p>
+                </div>
+
+                <div class="vibe_card">
+                    <div class="vibe_circle">
+                        <i class="fa-solid fa-hands-holding-circle"></i>
+                    </div>
+                    <h5>Handmade</h5>
+                    <p>Crafted in small batches.</p>
+                </div>
+
+                <div class="vibe_card">
+                    <div class="vibe_circle">
+                        <i class="fa-solid fa-paw"></i>
+                    </div>
+                    <h5>Cruelty Free</h5>
+                    <p>Never tested on animals.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- gallery -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="top_slide">
+                <h2><i class="fa-solid fa-fire-flame-curved"></i> Explore Scents</h2>
+            </div>
+            <div class="arch-grid">
+                <div class="arch-item">
+                    <img src="img/product/3.jpg" alt="Scent 1">
+                    <h5>MORNING CLARITY</h5>
+                    <p>Boost your focus with a 100% clean.these scents are infused with essential oils </p>
+                </div>
+                <div class="arch-item">
+                    <img src="img/product/19.jpg" alt="Scent 2">
+                    <h5>EVENING PEACE</h5>
+                    <p>Designed for restoration, these scents are infused with essential oils </p>
+                </div>
+                <div class="arch-item">
+                    <img src="img/product/22.jpg" alt="Scent 3">
+                    <h5>DINING RITUAL</h5>
+                    <p>Elevate your table setting with a balanced throw. </p>
+                </div>
+                <div class="arch-item">
+                    <img src="img/product/10.jpg" alt="Scent 3">
+                    <h5>LUMINARY</h5>
+                    <p>Experience phthalate-free luxury.for an scent experience that is safe sophisticated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter_inner">
+
+                <div class="newsletter_flame_left">
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                </div>
+                <div class="newsletter_flame_right">
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                </div>
+
+                <div class="newsletter_text">
+                    <span class="label label_light">Join the Inner Circle</span>
+                    <h2>Get 15% Off Your First Order</h2>
+                    <p>Subscribe to receive exclusive deals, new scent drops, and candle care tips — straight to your
+                        inbox.</p>
+                </div>
+
+                <form class="newsletter_form" onsubmit="handleNewsletterSubmit(event)">
+                    <div class="newsletter_input_wrap">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" placeholder="Enter your email address..." required>
+                    </div>
+                    <button type="submit" class="btn">
+                        Subscribe <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+
+                <p class="newsletter_note">
+                    <i class="fa-solid fa-lock"></i> We respect your privacy. No spam, ever.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="big_row">
+                <a href="#" class="logo">
+                    <h2 style="color: white;">Smoulder</h2>
+                </a>
+                <p>Lighting up your moments with scents that stay. We provide premium, eco-friendly candles for every
+                    home.</p>
+                <div class="icons_footer">
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <h4>Shop By Scent</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Floral & Garden</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Wood & Oud</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Fresh & Clean</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Spiced & Warm</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Sweet & Vanilla</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <h4>Customer Care</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Track Your Order</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Candle Care Guide</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Shipping Info</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Wholesale Orders</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Returns</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <h4>Information</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> About Smoulder</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Terms of Service</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>Smoulder Store.</span> All Rights Reserved.</p>
+                <div class="payment_img">
+                    <span>Cash on Delivery</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/items_home.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

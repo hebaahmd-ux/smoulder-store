@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoulder | Product Details</title>
+
+    <link rel="icon" href="img2/candle.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+    <!-- CART SIDEBAR -->
+    <div class="cart">
+        <div class="top_cart">
+            <h3>Scent Basket: <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+        <div class="items_in_cart" id="cart_items"></div>
+        <div class="bottom_cart">
+            <div class="total">
+                <p>Subtotal</p>
+                <p class="price_cart_toral">$0</p>
+            </div>
+            <div class="button_cart">
+                <a href="checkout.html" class="btn_cart btn">Checkout</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">Close</span>
+            </div>
+        </div>
+    </div>
+  <!-- HEADER -->
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="img2/candle.png" width="35px" height="35px" alt="Smoulder Logo">
+                    <h2>Smoulder</h2>
+                </a>
+                <form action="" class="search_box">
+                    <div class="select_box">
+                        <select id="category" name="category">
+                            <option value="All">All Categories</option>
+                            <option value="Cozy">Cozy Candles</option>
+                            <option value="Fresh">Fresh Diffusers</option>
+                            <option value="Romantic">Romantic Sets</option>
+                            <option value="Deep">Deep Oud & Wood</option>
+                            <option value="Sweet">Sweet Vanilla</option>
+                        </select>
+                    </div>
+                    <input type="text" name="search" id="search" placeholder="Search for your favorite scent..."
+                        required>
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <div class="header_icons">
+                    <div class="icon">
+                        <a href="#"><i class="fa-regular fa-heart"></i><span class="count count_favourite">0</span></a>
+                    </div>
+                    <div onclick="open_close_cart()" class="icon">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="count count_item_header">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_header">
+            <div class="container">
+                <nav class="nav">
+                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+                    <div class="category_nav">
+                        <div onclick="Open_Categ_list()" class="category_btn">
+                            <i class="fa-solid fa-bars"></i>
+                            <p>Scent Collections</p>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div class="category_nav_list">
+                            <a href="collection.html">Best Sellers</a>
+                            <a href="collection.html">Handmade Candles</a>
+                            <a href="collection.html">Essential Oils</a>
+                            <a href="collection.html">Home Diffusers</a>
+                            <a href="collection.html">Gift Boxes</a>
+                            <a href="collection.html">Room Sprays</a>
+                        </div>
+                    </div>
+                    <ul class="nav_links">
+                        <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="collection.html">Scent Collections</a></li>
+                        <li ><a href="our story.html">Our Story</a></li>
+                        <li><a href="contact us .html">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <div class="login_signup btns">
+
+                    <a href="javascript:void(0)" onclick="toggleModal('login')" class="btn">Login<i
+                            class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="javascript:void(0)" onclick="toggleModal('signup')" class="btn">Join Us<i
+                            class="fa-solid fa-user-plus"></i></a>
+                </div>
+                <!-- header btn -->
+                <div class="auth_modal" id="authModal">
+                    <div class="modal_content">
+                        <span class="close_modal" onclick="toggleModal()">&times;</span>
+
+                        <div id="loginForm" class="auth_form_container">
+                            <h2>Welcome Back</h2>
+                            <p>Login to your account</p>
+                            <form>
+                                <input type="email" placeholder="Email Address" required>
+                                <input type="password" placeholder="Password" required>
+                                <button type="submit" class="auth_btn">Login</button>
+                            </form>
+                            <p class="switch_text">New here? <a href="javascript:void(0)"
+                                    onclick="switchForm('signup')">Create
+                                    Account</a></p>
+                        </div>
+
+                        <div id="signupForm" class="auth_form_container" style="display: none;">
+                            <h2>Create Account</h2>
+                            <p>Join Smoulder Luxury</p>
+                            <form>
+                                <div class="form_grid">
+                                    <input type="text" placeholder="First Name" required>
+                                    <input type="text" placeholder="Last Name" required>
+                                </div>
+                                <input type="email" placeholder="Email Address" required>
+                                <input type="password" placeholder="Password" required>
+                                <button type="submit" class="auth_btn">Sign Up</button>
+                            </form>
+                            <p class="switch_text">Already have an account? <a href="javascript:void(0)"
+                                    onclick="switchForm('login')">Login</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!--  BREADCRUMB  -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-angle-right"></i>
+            <a href="collection.html">Scent Collections</a>
+            <i class="fa-solid fa-angle-right"></i>
+            <span class="current" id="breadcrumb_name">Loading...</span>
+        </div>
+    </nav>
+
+<!--  PRODUCT DETAIL  -->
+    <section class="product_detail_section">
+        <div class="container">
+
+            <!-- Loading skeleton (hidden once JS runs) -->
+            <div class="detail_skeleton" id="detail_skeleton">
+                <div class="skel_line w40 h40"></div>
+                <div class="skel_line w60"></div>
+                <div class="skel_line"></div>
+                <div class="skel_line w60"></div>
+            </div>
+
+            <!-- Actual content (hidden until loaded) -->
+            <div class="product_detail_grid" id="product_detail_grid" style="display:none;">
+
+                <!-- LEFT: Gallery -->
+                <div class="product_gallery">
+                    <div class="main_image_wrap">
+                        <span class="sale_badge_detail" id="detail_sale_badge" style="display:none;"></span>
+                        <img src="" alt="" id="main_product_img">
+                    </div>
+                    <!-- Thumbnails — same image shown 3× as placeholders; replace with real gallery imgs if available -->
+                    <div class="thumb_strip" id="thumb_strip"></div>
+                </div>
+
+                <!-- RIGHT: Info -->
+                <div class="product_info">
+
+                    <span class="category_badge" id="detail_category">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                        <span></span>
+                    </span>
+
+                    <h1 class="product_detail_name" id="detail_name"></h1>
+
+                    <div class="detail_stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <span>(142 reviews)</span>
+                    </div>
+
+                    <div class="detail_price_block">
+                        <span class="detail_price" id="detail_price"></span>
+                        <span class="detail_old_price" id="detail_old_price" style="display:none;"></span>
+                        <span class="detail_save_badge" id="detail_save" style="display:none;"></span>
+                    </div>
+
+                    <div class="detail_divider"></div>
+
+                    <!-- Scent notes (generated by category) -->
+                    <div class="scent_notes_block">
+                        <h4><i class="fa-solid fa-wind"></i> Scent Profile</h4>
+                        <div class="scent_notes_pills" id="scent_pills"></div>
+                    </div>
+
+                    <!-- Quick specs -->
+                    <div class="specs_row">
+                        <div class="spec_item">
+                            <i class="fa-solid fa-fire-flame-curved"></i>
+                            <div>
+                                <span class="spec_label">Burn Time</span>
+                                <span class="spec_value" id="spec_burn">50–60 hrs</span>
+                            </div>
+                        </div>
+                        <div class="spec_item">
+                            <i class="fa-solid fa-weight-hanging"></i>
+                            <div>
+                                <span class="spec_label">Net Weight</span>
+                                <span class="spec_value">250 g</span>
+                            </div>
+                        </div>
+                        <div class="spec_item">
+                            <i class="fa-solid fa-leaf"></i>
+                            <div>
+                                <span class="spec_label">Wax Type</span>
+                                <span class="spec_value">Soy Blend</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail_divider"></div>
+
+                    <!-- Quantity + Add to cart -->
+                    <div class="purchase_row">
+                        <div class="qty_control">
+                            <button class="qty_btn" id="qty_minus">−</button>
+                            <span class="qty_display" id="qty_display">1</span>
+                            <button class="qty_btn" id="qty_plus">+</button>
+                        </div>
+                        <button class="btn_add_detail" id="btn_add_detail">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            Add to Basket
+                        </button>
+                        <button class="btn_wishlist" id="btn_wishlist" title="Add to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <!-- Guarantees -->
+                    <div class="guarantee_strip">
+                        <span class="g_badge"><i class="fa-solid fa-truck-fast"></i> Free shipping over EGP 500</span>
+                        <span class="g_badge"><i class="fa-solid fa-rotate-left"></i> 14-day returns</span>
+                        <span class="g_badge"><i class="fa-solid fa-shield-halved"></i> Secure checkout</span>
+                        <span class="g_badge"><i class="fa-solid fa-recycle"></i> Eco packaging</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<!--  TABS  -->
+    <section class="detail_tabs_section">
+        <div class="container" id="tabs_container" style="display:none;">
+
+            <div class="tab_bar">
+                <button class="tab_btn active" onclick="switchTab('description', this)">Description</button>
+                <button class="tab_btn" onclick="switchTab('care', this)">Candle Care</button>
+                <button class="tab_btn" onclick="switchTab('specs', this)">Specifications</button>
+            </div>
+
+            <!-- Description -->
+            <div class="tab_panel active" id="tab_description">
+                <p id="tab_desc_text"></p>
+            </div>
+
+            <!-- Candle Care -->
+            <div class="tab_panel" id="tab_care">
+                <ul class="care_list">
+                    <li><i class="fa-solid fa-circle-check"></i> Trim the wick to 5mm before every burn to ensure a
+                        clean, smoke-free flame.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> On first use, burn until the wax pool reaches the edges
+                        of the jar — this prevents tunneling.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Never burn for more than 4 hours at a time. Let the
+                        candle cool fully before re-lighting.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Keep away from drafts, children, and pets. Always burn
+                        on a stable, heat-resistant surface.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Stop burning when 1cm of wax remains to protect the jar
+                        and surface below.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Once finished, clean the jar with warm water and
+                        repurpose it as a planter or storage vessel.</li>
+                </ul>
+            </div>
+
+            <!-- Specifications -->
+            <div class="tab_panel" id="tab_specs">
+                <table class="specs_table" id="specs_table">
+                    <tr>
+                        <td>Wax</td>
+                        <td>100% Natural Soy Wax Blend</td>
+                    </tr>
+                    <tr>
+                        <td>Fragrance</td>
+                        <td>Phthalate-free, cosmetic-grade</td>
+                    </tr>
+                    <tr>
+                        <td>Wick</td>
+                        <td>Cotton, lead-free</td>
+                    </tr>
+                    <tr>
+                        <td>Net Weight</td>
+                        <td>250 g</td>
+                    </tr>
+                    <tr>
+                        <td>Burn Time</td>
+                        <td id="spec_burn_tab">50–60 hours</td>
+                    </tr>
+                    <tr>
+                        <td>Jar</td>
+                        <td>Reusable glass, dishwasher safe</td>
+                    </tr>
+                    <tr>
+                        <td>Dimensions</td>
+                        <td>9 cm × 9 cm × 11 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Category</td>
+                        <td id="spec_cat_tab"></td>
+                    </tr>
+                    <tr>
+                        <td>Origin</td>
+                        <td>Hand-poured in Egypt</td>
+                    </tr>
+                    <tr>
+                        <td>Vegan</td>
+                        <td>Yes</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+<!--  RELATED PRODUCTS  -->
+    <section class="related_section">
+        <div class="container">
+            <div class="slide_product mySwiper">
+                <div class="top_slide">
+                    <h2><i class="fa-solid fa-fire-burner"></i> You May Also Love</h2>
+                </div>
+                <div class="products swiper-wrapper" id="related_products"></div>
+                <!-- <div class="swiper-button-next btn_Swip"></div>
+                <div class="swiper-button-prev btn_Swip"></div> -->
+            </div>
+        </div>
+    </section>
+<!-- CUSTOMER LOVE -->
+<section class="customer_love">
+  <div class="container">
+
+    <div class="section_title">
+      <span class="label">Real Reviews</span>
+      <h2>Customer Love</h2>
+      <p>Don't just take our word for it — here's what our community says.</p>
+    </div>
+
+    <div class="reviews_grid swiper reviews_swiper">
+      <div class="swiper-wrapper">
+
+        <div class="review_card swiper-slide">
+          <div class="review_stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review_text">"The Lavender Blossom candle completely transformed my bedroom. I light it every night before bed and I've never slept better. The scent is so pure and natural — not overpowering at all."</p>
+          <div class="review_author">
+            <div class="author_avatar">S</div>
+            <div class="author_info">
+              <h5>Sara M.</h5>
+              <span>Cairo, Egypt</span>
+            </div>
+            <div class="verified_badge"><i class="fa-solid fa-circle-check"></i> Verified</div>
+          </div>
+        </div>
+
+        <div class="review_card featured_review swiper-slide">
+          <div class="review_stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review_text">"I ordered the Smoked Oud & Leather candle as a gift and honestly almost kept it for myself. The packaging is stunning and the scent is incredibly rich. My friend was obsessed. 10/10 will order again."</p>
+          <div class="review_author">
+            <div class="author_avatar">K</div>
+            <div class="author_info">
+              <h5>Karim A.</h5>
+              <span>Dubai, UAE</span>
+            </div>
+            <div class="verified_badge"><i class="fa-solid fa-circle-check"></i> Verified</div>
+          </div>
+        </div>
+
+        <div class="review_card swiper-slide">
+          <div class="review_stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          </div>
+          <p class="review_text">"Finally found a candle brand that lives up to its hype. The Eucalyptus & Mint one is my go-to when I work from home. It smells exactly like a spa. Fast delivery and beautiful presentation too."</p>
+          <div class="review_author">
+            <div class="author_avatar">N</div>
+            <div class="author_info">
+              <h5>Nour H.</h5>
+              <span>Riyadh, KSA</span>
+            </div>
+            <div class="verified_badge"><i class="fa-solid fa-circle-check"></i> Verified</div>
+          </div>
+        </div>
+
+        <div class="review_card swiper-slide">
+          <div class="review_stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review_text">"The Lavender Blossom candle completely transformed my bedroom. I light it every night before bed and I've never slept better. The scent is so pure and natural — not overpowering at all."</p>
+          <div class="review_author">
+            <div class="author_avatar">S</div>
+            <div class="author_info">
+              <h5>Sara M.</h5>
+              <span>Cairo, Egypt</span>
+            </div>
+            <div class="verified_badge"><i class="fa-solid fa-circle-check"></i> Verified</div>
+          </div>
+        </div>
+
+        <div class="review_card featured_review swiper-slide">
+          <div class="review_stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review_text">"I ordered the Smoked Oud & Leather candle as a gift and honestly almost kept it for myself. The packaging is stunning and the scent is incredibly rich. My friend was obsessed. 10/10 will order again."</p>
+          <div class="review_author">
+            <div class="author_avatar">K</div>
+            <div class="author_info">
+              <h5>Karim A.</h5>
+              <span>Dubai, UAE</span>
+            </div>
+            <div class="verified_badge"><i class="fa-solid fa-circle-check"></i> Verified</div>
+          </div>
+        </div>
+
+        <div class="review_card swiper-slide">
+          <div class="review_stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          </div>
+          <p class="review_text">"Finally found a candle brand that lives up to its hype. The Eucalyptus & Mint one is my go-to when I work from home. It smells exactly like a spa. Fast delivery and beautiful presentation too."</p>
+          <div class="review_author">
+            <div class="author_avatar">N</div>
+            <div class="author_info">
+              <h5>Nour H.</h5>
+              <span>Riyadh, KSA</span>
+            </div>
+            <div class="verified_badge"><i class="fa-solid fa-circle-check"></i> Verified</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="rating_strip">
+      <div class="rating_number">4.9</div>
+      <div class="rating_details">
+        <div class="rating_stars_big">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+        </div>
+        <p>Based on <strong>2,400+</strong> verified reviews</p>
+      </div>
+      <a href="collection.html" class="btn">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+  </div>
+</section>
+<!--  FOOTER  -->
+    <footer>
+        <div class="container">
+            <div class="big_row">
+                <a href="index.html" class="logo">
+                    <h2 style="color: white;">Smoulder</h2>
+                </a>
+                <p>Lighting up your moments with scents that stay. We provide premium, eco-friendly candles for every
+                    home.</p>
+                <div class="icons_footer">
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Shop By Scent</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Floral & Garden</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Wood & Oud</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Fresh & Clean</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Spiced & Warm</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Sweet & Vanilla</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Customer Care</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Track Your Order</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Candle Care Guide</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Shipping Info</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Wholesale Orders</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Returns</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Information</h4>
+                <div class="links">
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> About Smoulder</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Terms of Service</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+                    <a href="#"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>Smoulder Store.</span> All Rights Reserved.</p>
+                <div class="payment_img"><span>Cash on Delivery</span></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      
+        const SCENT_MAP = {
+            scented: ["Floral", "Fruity", "Fresh"],
+            aromatherapy: ["Herbal", "Earthy", "Botanical"],
+            luxury: ["Oud", "Musk", "Sandalwood"],
+            seasonal: ["Spiced", "Warm", "Festive"],
+            natural: ["Clean", "Earthy", "Beeswax"],
+            basic: ["Neutral", "Cotton", "Unscented"]
+        };
+
+        const CAT_NAMES = {
+            scented: "Scented Candle",
+            aromatherapy: "Aromatherapy",
+            luxury: "Luxury Collection",
+            seasonal: "Seasonal Special",
+            natural: "Natural & Organic",
+            basic: "Basic Candle"
+        };
+
+        const BURN_MAP = {
+            scented: "45–55 hrs",
+            aromatherapy: "40–50 hrs",
+            luxury: "55–65 hrs",
+            seasonal: "40–50 hrs",
+            natural: "50–60 hrs",
+            basic: "30–40 hrs"
+        };
+        function buildDescription(product) {
+            const notes = (SCENT_MAP[product.catetory] || ["Warm", "Aromatic", "Rich"]).join(", ");
+            return `Introducing the <strong>${product.name}</strong> — a hand-poured soy wax candle crafted to transform any space into a sanctuary of warmth and calm.
+        <br><br>
+        With a rich scent profile built around <em>${notes}</em> notes, this candle fills the room with a gentle, long-lasting fragrance that never feels artificial or overwhelming. Every ingredient is carefully sourced, phthalate-free, and kind to the environment.
+        <br><br>
+        Whether you're winding down after a long day, setting the mood for a quiet evening, or looking for the perfect gift — the ${product.name} delivers an experience that goes beyond a scent. It's a ritual.`;
+        }
+
+        function getProductId() {
+            const params = new URLSearchParams(window.location.search);
+            return parseInt(params.get('id'));
+        }
+
+        let quantity = 1;
+
+        function updateQtyDisplay() {
+            document.getElementById('qty_display').textContent = quantity;
+        }
+
+        document.getElementById('qty_minus').addEventListener('click', () => {
+            if (quantity > 1) { quantity--; updateQtyDisplay(); }
+        });
+
+        document.getElementById('qty_plus').addEventListener('click', () => {
+            quantity++;
+            updateQtyDisplay();
+        });
+
+        document.getElementById('btn_wishlist').addEventListener('click', function () {
+            this.classList.toggle('liked');
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-regular');
+            icon.classList.toggle('fa-solid');
+        });
+
+        function switchTab(name, btn) {
+            document.querySelectorAll('.tab_panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab_btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab_' + name).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        function setMainImg(src) {
+            document.getElementById('main_product_img').src = src;
+        }
+
+        fetch('products.json')
+            .then(r => r.json())
+            .then(data => {
+                const id = getProductId();
+                const product = isNaN(id) ? data[0] : data.find(p => p.id === id);
+
+                if (!product) {
+                    document.getElementById('detail_skeleton').innerHTML =
+                        '<p style="color:var(--sale_color);font-size:18px;">Product not found. <a href="collection.html" style="color:var(--main_color);">Browse our collection</a></p>';
+                    return;
+                }
+
+                /* ── Breadcrumb ── */
+                document.getElementById('breadcrumb_name').textContent = product.name;
+                document.title = `Smoulder | ${product.name}`;
+
+                /* ── Main image ── */
+                document.getElementById('main_product_img').src = product.img;
+                document.getElementById('main_product_img').alt = product.name;
+
+                /* ── Thumbnails (show same image ×3 until real gallery imgs exist) ── */
+                const thumbStrip = document.getElementById('thumb_strip');
+                [product.img, product.img, product.img].forEach((src, i) => {
+                    const thumb = document.createElement('div');
+                    thumb.className = 'thumb' + (i === 0 ? ' active' : '');
+                    thumb.innerHTML = `<img src="${src}" alt="">`;
+                    thumb.addEventListener('click', () => {
+                        document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                        setMainImg(src);
+                    });
+                    thumbStrip.appendChild(thumb);
+                });
+
+                /* ── Sale badge ── */
+                if (product.old_price) {
+                    const badge = document.getElementById('detail_sale_badge');
+                    const pct = Math.floor((product.old_price - product.price) / product.old_price * 100);
+                    badge.textContent = `−${pct}% OFF`;
+                    badge.style.display = 'inline-block';
+                }
+
+                /* ── Category badge ── */
+                document.getElementById('detail_category').querySelector('span').textContent =
+                    CAT_NAMES[product.catetory] || product.catetory;
+
+                /* ── Name ── */
+                document.getElementById('detail_name').textContent = product.name;
+
+                /* ── Price ── */
+                document.getElementById('detail_price').textContent = `EGP ${product.price}`;
+                if (product.old_price) {
+                    const oldEl = document.getElementById('detail_old_price');
+                    const saveEl = document.getElementById('detail_save');
+                    oldEl.textContent = `EGP ${product.old_price}`;
+                    oldEl.style.display = 'inline';
+                    const saved = product.old_price - product.price;
+                    saveEl.textContent = `Save EGP ${saved}`;
+                    saveEl.style.display = 'inline-block';
+                }
+
+                /* ── Scent pills ── */
+                const pills = SCENT_MAP[product.catetory] || ["Warm", "Aromatic", "Rich"];
+                const pillContainer = document.getElementById('scent_pills');
+                pills.forEach(note => {
+                    pillContainer.innerHTML +=
+                        `<span class="scent_pill"><i class="fa-solid fa-droplet"></i>${note}</span>`;
+                });
+
+                /* ── Burn time ── */
+                const burnTime = BURN_MAP[product.catetory] || "45–55 hrs";
+                document.getElementById('spec_burn').textContent = burnTime;
+                document.getElementById('spec_burn_tab').textContent = burnTime;
+                document.getElementById('spec_cat_tab').textContent = CAT_NAMES[product.catetory] || product.catetory;
+
+                /* ── Tab description ── */
+                document.getElementById('tab_desc_text').innerHTML = buildDescription(product);
+
+                /* ── Add to cart button ── */
+                const cartArr = JSON.parse(localStorage.getItem('cart')) || [];
+                const alreadyIn = cartArr.some(c => c.id === product.id);
+                const addBtn = document.getElementById('btn_add_detail');
+
+                if (alreadyIn) {
+                    addBtn.classList.add('in_cart');
+                    addBtn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> Already in Basket';
+                }
+
+                addBtn.addEventListener('click', () => {
+                    if (addBtn.classList.contains('in_cart')) return;
+
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const exists = cart.find(c => c.id === product.id);
+                    if (exists) {
+                        exists.quantity += quantity;
+                    } else {
+                        cart.push({ ...product, quantity });
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCart();
+
+                    addBtn.classList.add('in_cart');
+                    addBtn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> Already in Basket';
+
+                    /* flash the cart open */
+                    document.querySelector('.cart').classList.add('active');
+                    setTimeout(() => document.querySelector('.cart').classList.remove('active'), 2200);
+                });
+
+                /* ── Related products ── */
+                const related = data
+                    .filter(p => p.catetory === product.catetory && p.id !== product.id)
+                    .slice(0, 8);
+
+                const relatedContainer = document.getElementById('related_products');
+                related.forEach(p => {
+                    const old = p.old_price ? `<p class="old_price">EGP ${p.old_price}</p>` : '';
+                    const disc = p.old_price
+                        ? `<span class="sale_present">−${Math.floor((p.old_price - p.price) / p.old_price * 100)}%</span>`
+                        : '';
+                    relatedContainer.innerHTML += `
+                    <div class="swiper-slide product">
+                        ${disc}
+                        <div class="img_product">
+                            <a href="product.html?id=${p.id}"><img src="${p.img}" alt="${p.name}"></a>
+                        </div>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="name_product"><a href="product.html?id=${p.id}">${p.name}</a></p>
+                        <div class="price">
+                            <p><span>EGP ${p.price}</span></p>
+                            ${old}
+                        </div>
+                        <div class="icons">
+                            <span class="btn_add_cart" data-id="${p.id}">
+                                <i class="fa-solid fa-cart-shopping"></i> Add to cart
+                            </span>
+                            <span class="icon_product"><i class="fa-regular fa-heart"></i></span>
+                        </div>
+                    </div>`;
+                });
+
+                /* ── Show content, hide skeleton ── */
+                document.getElementById('detail_skeleton').style.display = 'none';
+                document.getElementById('product_detail_grid').style.display = 'grid';
+                document.getElementById('tabs_container').style.display = 'block';
+
+                /* ── Init related Swiper (re-init after dynamic content) ── */
+                new Swiper(".related_section .mySwiper", {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                    autoplay: { delay: 2800, disableOnInteraction: false },
+                    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+                    loop: related.length >= 5,
+                    breakpoints: {
+                        1200: { slidesPerView: 5 },
+                        1000: { slidesPerView: 4 },
+                        700: { slidesPerView: 3 },
+                        0: { slidesPerView: 2 }
+                    }
+                });
+
+                /* ── Wire up add-to-cart on related cards ── */
+                document.querySelectorAll('.btn_add_cart').forEach(btn => {
+                    btn.addEventListener('click', e => {
+                        const pid = e.currentTarget.getAttribute('data-id');
+                        const sel = data.find(p => p.id == pid);
+                        if (!sel) return;
+                        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                        if (!cart.some(c => c.id === sel.id)) {
+                            cart.push({ ...sel, quantity: 1 });
+                            localStorage.setItem('cart', JSON.stringify(cart));
+                            updateCart();
+                        }
+                        e.currentTarget.classList.add('active');
+                        e.currentTarget.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> Item in cart';
+                    });
+                });
+            });
+    </script>
+</body>
+
+</html>
