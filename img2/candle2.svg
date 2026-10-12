@@ -1,0 +1,22 @@
+<svg width="200" height="200" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M25 40 L75 40 L68 75 C67 80 33 80 32 75 Z" stroke="black" stroke-width="2" fill="white"/>
+  <ellipse cx="50" cy="40" rx="25" ry="5" stroke="black" stroke-width="2" fill="white"/>
+  
+  <path d="M50 35 V28" stroke="black" stroke-width="2"/>
+  <path d="M50 5 C55 15 58 20 50 28 C42 20 45 15 50 5Z" stroke="black" stroke-width="2" fill="white"/>
+
+  <g transform="translate(65, 65)">
+    <circle cx="0" cy="0" r="3" stroke="black" stroke-width="1.5" fill="white"/>
+    <ellipse cx="0" cy="-8" rx="4" ry="6" stroke="black" stroke-width="1.5" fill="white" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-8" rx="4" ry="6" stroke="black" stroke-width="1.5" fill="white" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-8" rx="4" ry="6" stroke="black" stroke-width="1.5" fill="white" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-8" rx="4" ry="6" stroke="black" stroke-width="1.5" fill="white" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-8" rx="4" ry="6" stroke="black" stroke-width="1.5" fill="white" transform="rotate(288)"/>
+  </g>
+
+  <path d="M25 80 Q40 85 55 75" stroke="black" stroke-width="1.5" fill="none"/>
+  <ellipse cx="28" cy="76" rx="3" ry="1.5" fill="black" transform="rotate(-30, 28, 76)"/>
+  <ellipse cx="35" cy="72" rx="3" ry="1.5" fill="black" transform="rotate(-30, 35, 72)"/>
+  <ellipse cx="45" cy="83" rx="3" ry="1.5" fill="black" transform="rotate(-10, 45, 83)"/>
+  <ellipse cx="52" cy="80" rx="3" ry="1.5" fill="black" transform="rotate(-10, 52, 80)"/>
+</svg>
